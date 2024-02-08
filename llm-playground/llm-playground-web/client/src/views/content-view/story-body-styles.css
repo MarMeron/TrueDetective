@@ -1,0 +1,49 @@
+#main-body-cont {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    margin-bottom: 4px;
+    padding-inline: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#text-column-cont {
+    width: 800px;
+    padding-bottom: 24px;
+    align: center;
+}
+
+.message-assistant {
+    color: black;
+    font-size: 1.2em;
+    width: 25vw;
+    text-align: center;
+    font-style: italic;
+}
+
+.message-storyEvent {
+    color: yellow;
+    font-size: 1.2em;
+    width: 25vw;
+    text-align: center;
+    font-style: italic;
+}
+
+.message-user {
+    font-family: sans-serif;
+    color: #0c1b71;
+}
+
+.call-to-action {
+    font-family: sans-serif;
+    color: #aaa;
+}
+
+@media only screen and (max-width: 600px) {
+    #text-column-cont {
+        width: 100%;
+    }
+}
