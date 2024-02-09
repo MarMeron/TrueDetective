@@ -1,0 +1,22 @@
+/* App.css */
+
+.split-screen-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .left-pane,
+  .right-pane {
+    flex: 1;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  .left-pane {
+    background-color: #fa0202; /* Adjust the colors as needed */
+  }
+  
+  .right-pane {
+    background-color: #0dff00; /* Adjust the colors as needed */
+  }
+  
