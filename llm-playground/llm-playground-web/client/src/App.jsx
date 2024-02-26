@@ -5,6 +5,7 @@ import './App.css';
 import AppStateProvider from './app-state/AppStateProvider';
 import StoryBodyView from './views/content-view/StoryBodyView';
 import storyConfig from './story/story-config';
+import InteractorInputView from './views/interactor-input-view/InteractorInputView';
 import Sad from '../public/images/sad.webp';
 import Happy from '../public/images/happy.webp';
 import Angry from '../public/images/angry.webp';
@@ -54,22 +55,12 @@ function SplitScreenPage() {
                 <div className="split-screen-container">
                     <div className="left-pane">
                         <img src={leftImages[leftImageIndex]} alt="Left Image" className="left-image" />
-                        <input
-                            className="custom-input"
-                            type="text"
-                            value={inputText}
-                            onChange={handleInputChange}
-                            onKeyPress={handleKeyPress}
-                            placeholder="Type here..."
-                        />
-                        <div className="text_input_button">
-                            <button onClick={handleSubmit}>Submit</button>
-                        </div>
+                        
                     </div>
                     <div className="text-pane">
-                        <div className="story-text">
-                            <StoryBodyView />
-                        </div>
+                        <StoryBodyView />
+                        <InteractorInputView />
+                        
                     </div>
                     <div className="right-pane">
                         <img src={rightImages[rightImageIndex]} alt="Right Image" className="right-image" />
