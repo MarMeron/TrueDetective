@@ -24,14 +24,6 @@
     font-style: italic;
 }
 
-.message-storyEvent {
-    color: yellow;
-    font-size: 1.2em;
-    width: 25vw;
-    text-align: center;
-    font-style: italic;
-}
-
 .message-user {
     font-family: sans-serif;
     color: #0c1b71;

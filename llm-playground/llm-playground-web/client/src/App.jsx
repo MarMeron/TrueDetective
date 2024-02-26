@@ -2,33 +2,89 @@
 
 import React, { useState } from 'react';
 import './App.css';
-import Couple from '../public/images/Couple.png';
+import AppStateProvider from './app-state/AppStateProvider';
+import StoryBodyView from './views/content-view/StoryBodyView';
+import storyConfig from './story/story-config';
+import Sad from '../public/images/sad.webp';
+import Happy from '../public/images/happy.webp';
+import Angry from '../public/images/angry.webp';
+import House from '../public/images/house.webp';
+import MurederRoom from '../public/images/murderRoom.webp';
 
 function SplitScreenPage() {
-    const [leftImage, setLeftImage] = useState(0);
-    const [rightImage, setRightImage] = useState(0);
+    const [inputText, setInputText] = useState('');
+    const [leftImageIndex, setLeftImageIndex] = useState(0);
+    const [rightImageIndex, setRightImageIndex] = useState(0);
 
-    const leftImages = ['../public/images/Room_2.webp', '../public/images/Couple.png', 'left-image3.jpg'];
-    const rightImages = ['right-image1.jpg', 'right-image2.jpg', '../public/images/Room.webp'];
+    const leftImages = [Sad, Happy, Angry];
+    const rightImages = [House, MurederRoom];
 
-    const changeLeftImage = (ind) => {
-        setLeftImage(ind);
+    const handleInputChange = (event) => {
+        setInputText(event.target.value);
     };
 
-    const changeRightImage = (ind) => {
-        setRightImage(ind);
+    const handleSubmit = () => {
+        if (inputText.toLowerCase().includes('hello')) {
+            setLeftImageIndex((leftImageIndex + 1) % leftImages.length);
+        }
+        setInputText('');
+    };
+
+    const handleRightArrowClick = () => {
+        setRightImageIndex((rightImageIndex + 1) % rightImages.length);
+    };
+
+    const handleLeftArrowClick = () => {
+        const newIndex = rightImageIndex - 1 < 0 ? rightImages.length - 1 : rightImageIndex - 1;
+        setRightImageIndex(newIndex);
+    };
+
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            handleSubmit();
+        }
     };
 
     return (
-        <div className="split-screen-container">
-            <div className="left-pane" onClick={() => changeLeftImage(1)}>
-                <img src={leftImages[leftImage]} alt="Left Image" />
-                <p>This is some text at the bottom of the left pane.</p>
+        <AppStateProvider>
+            <div>
+                <div className="header">
+                    <h1>True Detective</h1>
+                </div>
+                <div className="split-screen-container">
+                    <div className="left-pane">
+                        <img src={leftImages[leftImageIndex]} alt="Left Image" className="left-image" />
+                        <input
+                            className="custom-input"
+                            type="text"
+                            value={inputText}
+                            onChange={handleInputChange}
+                            onKeyPress={handleKeyPress}
+                            placeholder="Type here..."
+                        />
+                        <div className="text_input_button">
+                            <button onClick={handleSubmit}>Submit</button>
+                        </div>
+                    </div>
+                    <div className="text-pane">
+                        <div className="story-text">
+                            <StoryBodyView />
+                        </div>
+                    </div>
+                    <div className="right-pane">
+                        <img src={rightImages[rightImageIndex]} alt="Right Image" className="right-image" />
+                        <div className="arrow-buttons">
+                            <button onClick={handleLeftArrowClick} className="arrow-button">
+                                Previous
+                            </button>
+                            <button onClick={handleRightArrowClick} className="arrow-button">
+                                Next
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="right-pane" onClick={() => changeRightImage(2)}>
-                <img src={rightImages[rightImage]} alt="Right Image" />
-            </div>
-        </div>
+        </AppStateProvider>
     );
 }
 

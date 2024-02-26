@@ -3,7 +3,7 @@ import { createContext, useContext, useState, Dispatch, SetStateAction, PropsWit
 import storyConfig from '../story/story-config';
 
 export type Message = {
-    role: 'system' | 'user' | 'assistant' | 'storyEvent';
+    role: 'system' | 'user' | 'assistant';
     content: string;
 };
 
@@ -14,11 +14,7 @@ type AppState = {
 };
 
 const initAppState: AppState = {
-    messages: [
-        { role: 'system', content: storyConfig.instructions },
-        { role: 'assistant', content: storyConfig.openingLine },
-        { role: 'assistant', content: storyConfig.callToAction },
-    ],
+    messages: [{ role: 'system', content: storyConfig.instructions }],
     status: 'idle',
     inputMessage: '',
 };
