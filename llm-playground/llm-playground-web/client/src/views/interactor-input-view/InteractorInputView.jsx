@@ -21,7 +21,7 @@ export default function InteractorInputView() {
             if (msg.role === 'storyEvent') return { ...msg, role: 'assistant' };
             else return msg;
         });
-        setAppState({ messages: msgsForApi, status: 'loading', inputMessage: '' });
+        setAppState({ messages: msgsForApi, status: 'loading', inputMessage: '' ,emotion: 'neutral'});
         console.log('Sending to api: ', msgsForApi);
         fetch(`${SETTINGS.SERVER_URL}/story-completions`, {
             method: 'POST',

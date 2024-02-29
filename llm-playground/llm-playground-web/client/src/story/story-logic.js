@@ -12,15 +12,20 @@ export function useHandleStoryResponse() {
     }, [inputMessage]);
 
     function handleStoryResponse(messages, response) {
+        // console.log('response', response);
+
         if (!response) return;
 
         const newMessages = [...messages];
 
         if (response.storyText) {
+            if (response.storyText.includes('basement')) {
+                setAppState({ messages: [...newMessages], emotion: response.emotion, Done: true });
+            }
             newMessages.push({ role: 'assistant', content: response.storyText });
         }
-
-        setAppState({ messages: [...newMessages] });
+        console.log(response);
+        setAppState({ messages: [...newMessages] ,emotion: response.emotion});
     }
 
     return handleStoryResponse;

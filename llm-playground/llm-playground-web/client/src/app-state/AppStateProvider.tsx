@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useState, Dispatch, SetStateAction, PropsWithChildren } from 'react';
+import { createContext, useContext, useState, Dispatch, SetStateAction, PropsWithChildren, useEffect } from 'react';
 import storyConfig from '../story/story-config';
 
 export type Message = {
@@ -11,12 +11,19 @@ type AppState = {
     messages: Message[];
     status: 'idle' | 'loading' | 'error';
     inputMessage: '';
+    emotion: string;
+    Done: boolean;
 };
 
 const initAppState: AppState = {
-    messages: [{ role: 'system', content: storyConfig.instructions }],
+    messages: [
+        { role: 'system', content: storyConfig.instructions },
+        { role: 'assistant', content: storyConfig.openingLine },
+    ],
     status: 'idle',
     inputMessage: '',
+    emotion: 'neutral',
+    Done: false
 };
 
 const AppStateContext = createContext(initAppState);
@@ -35,8 +42,11 @@ export default function AppStateProvider({ children }: PropsWithChildren) {
 export function useAppState() {
     return useContext(AppStateContext);
 }
+
 export function useSetAppState() {
+    
     const set = useContext(AppStateReducerContext);
+    
     return (newState: Partial<AppState>) => {
         set((currentState) => ({ ...currentState, ...newState }));
     };

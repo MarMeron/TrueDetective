@@ -1,0 +1,11 @@
+h2 {
+    color: rgb(255, 0, 0);
+    font-size: 4em;
+    /* top: 300px; */
+    left: 0;
+    right: 0;
+    text-align: center;
+    height: 50%;
+    line-height: 0; /* Adjusts the space between lines of text */
+    padding: 0px;
+}

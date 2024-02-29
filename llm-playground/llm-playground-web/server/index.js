@@ -20,6 +20,7 @@ app.use(cors()); // In production, this should be configured to accept requests 
 app.post("/story-completions", async (req, res) => {
   console.log("Got story-completions request from client");
   const messages = req.body;
+  console.log("Messeges", messages);
 
   try {
     // Make sure we have the necessary data
@@ -27,7 +28,6 @@ app.post("/story-completions", async (req, res) => {
       return res.status(400).json({ error: "Expecting an array of messages." });
     }
     // TODO: handle other possible errors regarding the received data.
-
     // Call OpenAI GPT API
     const response = await axios
       .post(
