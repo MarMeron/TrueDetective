@@ -30,15 +30,15 @@ function SplitScreenPage() {
 
     useEffect(() => {
 
-        if (state.emotion.toLowerCase().includes('sad')) {
+        if (state.emotion.includes('sad')) {
             setLeftImageIndex(0);
-        } else if (state.emotion.toLowerCase().includes('happy')) {
+        } else if (state.emotion.includes('happy')) {
             setLeftImageIndex(1);
-        } else if (state.emotion.toLowerCase().includes('angry')) {
+        } else if (state.emotion.includes('angry')) {
             setLeftImageIndex(2);
-        } else if (state.emotion.toLowerCase().includes('remorse')) {
+        } else if (state.emotion.includes('remorse')) {
             setLeftImageIndex(3);
-        } else if (state.emotion.toLowerCase().includes('neutral')) {
+        } else if (state.emotion.includes('neutral')) {
             setLeftImageIndex(4);
         }
         setInputText('');

@@ -19,12 +19,12 @@
 }
 
 h1 {
-    color: rgb(0, 0, 0);
-    background-color: rgba(230, 230, 230, 0.6); 
+    color: rgb(123, 70, 0);
+    background-color: rgba(0, 0, 0, 0.9); 
     /* padding: 0px; */
     font-size: 4em; /* Reduce the font size */
     position: absolute;
-    top: 5px; /* Adjust the distance from the top of the page */
+    top: 0; /* Adjust the distance from the top of the page */
     text-align: center; /*Centers the text within the header*/
 }
 
@@ -40,9 +40,9 @@ button {
 .opening_lines{
     color: rgb(255, 25, 0);
     background-color: rgba(0, 0, 0, 0.9);
-    padding: 10px;
+    padding: 20px;
     font-size: 2em; /* Adjust size as needed */
     width: 60%;
-    margin-top: 40px;
+    margin-top: 70px;
     font-family: Arial, sans-serif; /* Sets the font to Arial */
 }
