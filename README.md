@@ -1,6 +1,6 @@
 # TrueDetective
 
-This is my Interigation simulator. This project utilizes ChatGPT to act as a crime suspect, and it's your job to interogate him and colve the crime.
+### This is my Interigation simulator. This project utilizes ChatGPT to act as a crime suspect, and it's your job to interogate him and colve the crime.
 
 
 Make sure you have a `.env` file in both client and server folders, including the following params:
