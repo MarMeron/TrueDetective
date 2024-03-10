@@ -6,4 +6,4 @@ Here's a video of what you should expect:
 
 https://youtu.be/i638gnHozwc
 
-This project was submitted to a Bezalel Acadamy Course
+This project was submitted to Bezalel Acadamy Course
